@@ -1,0 +1,357 @@
+{
+	"info": {
+		"_postman_id": "dcb93605-06e8-4848-9e7a-aa5595fd710f",
+		"name": "hyperledger",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Bank",
+			"item": [
+				{
+					"name": "payment",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"org\"           : \"Org3MSP\",\n    \"channelName\"   : \"mychannel\",\n    \"chainCodeName\" : \"basic\",\n    \"userId\"        : \"BANK1\",\n    \"insurance\": {\n        \"insuranceId\"           : \"INS-113\",   \n        \"insuranceAmountPaid\"   : \"Yes\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/bank/payClaimInsurance",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"bank",
+								"payClaimInsurance"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Insurance",
+			"item": [
+				{
+					"name": "verifyDamage",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"org\"           : \"Org2MSP\",\n    \"channelName\"   : \"mychannel\",\n    \"chainCodeName\" : \"basic\",\n    \"userId\"        : \"INSC1\",\n    \"insurance\": {\n        \"insuranceId\"        : \"INS-113\",   \n        \"damageVerified\"     : \"true\",\n        \"insuranceAmount\"    : \"40000\"\n    }\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/insurance/verifyDamage",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"insurance",
+								"verifyDamage"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "customer",
+			"item": [
+				{
+					"name": "createInsurance",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"org\"           : \"Org1MSP\",\n    \"channelName\"   : \"mychannel\",\n    \"chainCodeName\" : \"basic\",\n    \"userId\"        : \"CUST1\",\n    \"insurance\": {\n        \"insuranceId\"        : \"INS-113\",\n        \"insurancetype\"      : \"Personal\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/customer/creatInsurance",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"customer",
+								"creatInsurance"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "createInsurance",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"org\"           : \"Org1MSP\",\n    \"channelName\"   : \"mychannel\",\n    \"chainCodeName\" : \"basic\",\n    \"userId\"        : \"CUST1\",\n    \"insurance\": {\n        \"insuranceId\"        : \"INS-112\",\n        \"insurancetype\"      : \"Personal\"\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/customer/creatInsurance",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"customer",
+										"creatInsurance"
+									]
+								}
+							},
+							"_postman_previewlanguage": "Text",
+							"header": [],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "registerUser",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \n    \"org\": \"Org3MSP\", \n    \"userId\": \"BANK1\",\n    \"usertype\": \"Bank\",\n    \"name\": \"Kotak\",\n    \"email\": \"hello@kotak.com\",\n    \"phone\": \"022287654\",\n    \"channelName\": \"mychannel\",\n    \"chainCodeName\": \"basic\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/users/registerUser",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"users",
+						"registerUser"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "LIC",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \n    \"org\": \"Org2MSP\", \n    \"userId\": \"INSC1\",\n    \"usertype\": \"Insurance\",\n    \"name\": \"LIC\",\n    \"email\": \"hello@lic@gmail.com\",\n    \"phone\": \"022245768\",\n    \"channelName\": \"mychannel\",\n    \"chainCodeName\": \"basic\"\n}   ",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/users/registerUser",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users",
+								"registerUser"
+							]
+						}
+					},
+					"_postman_previewlanguage": "Text",
+					"header": [],
+					"cookie": [],
+					"body": ""
+				},
+				{
+					"name": "Kotak",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \n    \"org\": \"Org3MSP\", \n    \"userId\": \"BANK1\",\n    \"usertype\": \"Bank\",\n    \"name\": \"Kotak\",\n    \"email\": \"hello@kotak.com\",\n    \"phone\": \"022287654\",\n    \"channelName\": \"mychannel\",\n    \"chainCodeName\": \"basic\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/users/registerUser",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users",
+								"registerUser"
+							]
+						}
+					},
+					"_postman_previewlanguage": "Text",
+					"header": [],
+					"cookie": [],
+					"body": ""
+				},
+				{
+					"name": "manish",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \n    \"org\": \"Org1MSP\", \n    \"userId\": \"CUST1\",\n    \"usertype\": \"Customer\",\n    \"name\": \"manish\",\n    \"email\": \"manish.chourasiya@neosoft.com\",\n    \"phone\": \"8693895363\",\n    \"channelName\": \"mychannel\",\n    \"chainCodeName\": \"basic\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/users/registerUser",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users",
+								"registerUser"
+							]
+						}
+					},
+					"_postman_previewlanguage": "Text",
+					"header": [],
+					"cookie": [],
+					"body": ""
+				}
+			]
+		},
+		{
+			"name": "demo",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"org\": \"MSP\",\n    \"channelName\": \"mychannel\",\n    \"chainCodeName\": \"basic\",\n    \"userId\": \"mushir\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/query/readAsset",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"query",
+						"readAsset"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ReadHistory",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"org\"           : \"Org1MSP\",\n    \"channelName\"   : \"mychannel\",\n    \"chainCodeName\" : \"basic\",\n    \"userId\"        : \"CUST1\",\n    \"insurance\": {\n        \"insuranceId\"        : \"INS-113\"\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/query/getHistory",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"query",
+						"getHistory"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "query",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"org\"           : \"Org1MSP\",\n    \"channelName\"   : \"mychannel\",\n    \"chainCodeName\" : \"basic\",\n    \"userId\"        : \"CUST1\",\n    \"dockType\"      : \"User_model\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/query/getFromQuery",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"query",
+						"getFromQuery"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
